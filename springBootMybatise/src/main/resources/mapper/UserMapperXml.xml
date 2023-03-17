@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootmybatise.dao.mapper.UserMapperXml">
+    <select id="selectUserAll" resultType="com.example.springbootmybatise.dao.entity.User"
+            parameterType="com.example.springbootmybatise.dao.entity.User">
+        select * from user where name like '%${name}%';
+    </select>
+    
+    <resultMap id="res1" type="com.example.springbootmybatise.dao.entity.User">
+        <result column="id" property="ID"/>
+        <result column="name" property="name"/>
+        <result column="userName" property="userName"/>
+        <result column="password" property="password"/>
+    </resultMap>
+    <select id="select2" resultMap="res1">
+        select * from user;
+    </select>
+</mapper>
